@@ -10,4 +10,6 @@ onHide(() => {
   console.log('App Hide')
 })
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+@import '@/common/scss/global.scss';
+</style>

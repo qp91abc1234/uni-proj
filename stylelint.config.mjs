@@ -14,6 +14,7 @@ export default {
   rules: {
     'no-empty-source': null,
     'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],
-    'declaration-property-value-no-unknown': null
+    'declaration-property-value-no-unknown': null,
+    'scss/load-partial-extension': 'always'
   }
 }
