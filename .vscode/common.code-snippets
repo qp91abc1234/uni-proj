@@ -6,7 +6,7 @@
       "<script setup lang=\"ts\"></script>",
       "",
       "<template>",
-      "  <g-flex></g-flex>",
+      "  <view></view>",
       "</template>",
       "",
       "<style lang=\"scss\" scoped></style>",
