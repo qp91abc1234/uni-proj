@@ -6,7 +6,7 @@
       "<script setup lang=\"ts\"></script>",
       "",
       "<template>",
-      "  <Flex align=\"center\"></Flex>",
+      "  <view></view>",
       "</template>",
       "",
       "<style lang=\"scss\" scoped></style>",
