@@ -111,6 +111,9 @@ importers:
       globals:
         specifier: ^16.0.0
         version: 16.0.0
+      postcss-html:
+        specifier: ^1.8.0
+        version: 1.8.0
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
