@@ -1,0 +1,17 @@
+{
+  "cc-new-file": {
+    "scope": "vue",
+    "prefix": "cc-new-file",
+    "body": [
+      "<script setup lang=\"ts\"></script>",
+      "",
+      "<template>",
+      "  <Flex align=\"center\"></Flex>",
+      "</template>",
+      "",
+      "<style lang=\"scss\" scoped></style>",
+      ""
+    ],
+    "description": "cc-new-file"
+  }
+}
