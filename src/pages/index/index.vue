@@ -1,6 +1,7 @@
 <template>
   <view class="content">
     <image class="logo" src="/static/logo.png" />
+    <wd-button>主要按钮</wd-button>
     <view class="text-area">
       <text class="title">{{ title }}</text>
     </view>
