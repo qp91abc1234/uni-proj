@@ -7,3 +7,5 @@ declare module 'vue' {
     CLayout: typeof CLayout
   }
 }
+
+export {}
