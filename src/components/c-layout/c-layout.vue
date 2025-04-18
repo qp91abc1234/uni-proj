@@ -61,6 +61,13 @@ const contentH = windowInfo.windowHeight - navBarH - bottomBarH
   </template>
 </template>
 
+<style lang="scss">
+:host {
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+
 <style lang="scss" scoped>
 .layout {
   width: 100%;

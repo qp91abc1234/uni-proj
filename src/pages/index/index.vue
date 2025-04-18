@@ -1,5 +1,5 @@
 <template>
-  <view></view>
+  <c-flex></c-flex>
 </template>
 
 <script setup lang="ts"></script>

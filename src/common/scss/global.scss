@@ -2,13 +2,7 @@ view {
   position: relative;
 }
 
-c-flex {
+// 设置组件包装节点
+[is] {
   display: block;
 }
-
-c-layout {
-  display: block;
-  width: 100vw;
-  height: 100vh;
-}
-
