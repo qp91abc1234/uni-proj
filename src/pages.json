@@ -3,7 +3,8 @@
 		"autoscan": true,
 		"custom": {
 			"^wd-(.*)": "wot-design-uni/components/wd-$1/wd-$1.vue",
-			"^cc-(.*)": "@/components/cc-$1/cc-$1.vue"
+			"^c-(.*)": "@/components/c-$1/c-$1.vue",
+			"^m-(.*)": "@/modules/m-$1/m-$1.vue"
 		}
 	},
 	"pages": [
