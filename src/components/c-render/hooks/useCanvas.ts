@@ -1,6 +1,5 @@
 import { ref } from 'vue'
 
-import { rpx2px } from '@/common/utils'
 import { useAppStore } from '@/store/modules/appStore'
 
 import type { ComponentInternalInstance } from 'vue'
@@ -52,7 +51,7 @@ export const useCanvas = () => {
   }
 
   function baseDraw(data: IBaseData) {
-    context.value.translate(rpx2px(data.x), rpx2px(data.y))
+    context.value.translate(data.x, data.y)
     context.value.rotate((data.rotate * Math.PI) / 180)
     context.value.scale(data.scale, data.scale)
     context.value.globalAlpha = data.alpha
@@ -60,7 +59,7 @@ export const useCanvas = () => {
 
   function drawText(data: ITextData) {
     baseDraw(data)
-    const fontSize = rpx2px(data.size)
+    const fontSize = data.size
     context.value.fillStyle = data.color
     context.value.font = `${fontSize}px ${data.font}`
     const width = context.value.measureText(data.content).width
@@ -72,10 +71,10 @@ export const useCanvas = () => {
     data.w = data.w === 0 ? data.oriW : data.w
     data.h = data.h === 0 ? data.oriH : data.h
 
-    const x = -rpx2px(data.w) * data.anchor.x
-    const y = -rpx2px(data.h) * data.anchor.y
-    const width = rpx2px(data.w)
-    const height = rpx2px(data.h)
+    const x = -data.w * data.anchor.x
+    const y = -data.h * data.anchor.y
+    const width = data.w
+    const height = data.h
 
     // 将头像剪切为圆形
     if (data.round) {

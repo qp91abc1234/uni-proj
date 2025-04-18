@@ -6,7 +6,7 @@ import Text from './entity/text'
 import Entity from './entity/entity'
 
 import { useCanvas } from './hooks/useCanvas'
-import { px2rpx, toPromiseStyle } from '@/common/utils'
+import { toPromiseStyle } from '@/common/utils'
 
 const inst = getCurrentInstance()
 const canvasHook = useCanvas()
@@ -28,8 +28,8 @@ const renderInstPromise = new Promise((resolve) => {
 
 onMounted(async () => {
   await canvasHook.setup('render-canvas', inst)
-  renderInst.canvasEleW = px2rpx(canvasHook.canvasEleW.value)
-  renderInst.canvasEleH = px2rpx(canvasHook.canvasEleH.value)
+  renderInst.canvasEleW = canvasHook.canvasEleW.value
+  renderInst.canvasEleH = canvasHook.canvasEleH.value
   renderInstResolve(renderInst)
 })
 
@@ -77,7 +77,9 @@ defineExpose({
 <style lang="scss">
 :host {
   position: absolute;
-  top: -9999rpx;
+  top: -9999px;
+  width: 500px; // 设计分辨率，出 dpr 倍图，分享图相关单位使用 px
+  height: 400px;
 }
 </style>
 
