@@ -1,5 +1,7 @@
 import type { useCanvas } from './hooks/useCanvas'
 
+export type CanvasHook = ReturnType<typeof useCanvas>
+export type Canvas = HTMLCanvasElement & { createImage: () => HTMLImageElement }
 export interface IBaseData {
   x: number
   y: number
@@ -25,6 +27,3 @@ export interface IImgData extends IBaseData {
   anchor: { x: number; y: number }
   round: boolean
 }
-
-export type Canvas = HTMLCanvasElement & { createImage: () => HTMLImageElement }
-export type CanvasHook = ReturnType<typeof useCanvas>
