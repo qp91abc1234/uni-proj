@@ -1,5 +1,3 @@
-import { ref } from 'vue'
-
 import { useAppStore } from '@/store/modules/appStore'
 
 import type { ComponentInternalInstance } from 'vue'
@@ -8,10 +6,10 @@ import type { Canvas, IImgData, IBaseData, ITextData } from '../types/render'
 export const useCanvas = () => {
   const appStore = useAppStore()
 
-  const canvasEleW = ref(0)
-  const canvasEleH = ref(0)
-  const canvas = ref<Canvas>({} as Canvas)
-  const context = ref<CanvasRenderingContext2D>({} as CanvasRenderingContext2D)
+  const canvasEleW: { value: number } = { value: 0 }
+  const canvasEleH: { value: number } = { value: 0 }
+  const canvas: { value: Canvas } = { value: {} as Canvas }
+  const context: { value: CanvasRenderingContext2D } = { value: {} as CanvasRenderingContext2D }
 
   function setup(id = 'canvas', inst: ComponentInternalInstance | null = null) {
     return new Promise((resolve) => {

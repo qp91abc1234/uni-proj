@@ -64,7 +64,8 @@ export default defineConfig([
   {
     languageOptions: {
       globals: {
-        uni: true
+        uni: true,
+        wx: true
       }
     },
     rules: {

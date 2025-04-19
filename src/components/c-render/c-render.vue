@@ -6,37 +6,41 @@ import Text from './entity/text'
 import Entity from './entity/entity'
 
 import { useCanvas } from './hooks/useCanvas'
-import { toPromiseStyle } from '@/common/utils'
+
+import type { RenderInst } from './types/render'
+
+const emits = defineEmits<{
+  (e: 'init', inst: RenderInst): void
+}>()
 
 const inst = getCurrentInstance()
 const canvasHook = useCanvas()
 const root = new Entity(canvasHook)
-const renderInst = {
+const renderInst: RenderInst = {
   canvasEleW: 0,
   canvasEleH: 0,
   drawPoster,
   addChild,
   removeChild,
+  removeAllChild,
   createText,
   createImg
 }
 
-let renderInstResolve
-const renderInstPromise = new Promise((resolve) => {
-  renderInstResolve = resolve
-})
-
 onMounted(async () => {
-  await canvasHook.setup('render-canvas', inst)
+  const res = await canvasHook.setup('render-canvas', inst)
+  if (!res) {
+    return
+  }
   renderInst.canvasEleW = canvasHook.canvasEleW.value
   renderInst.canvasEleH = canvasHook.canvasEleH.value
-  renderInstResolve(renderInst)
+  emits('init', renderInst)
 })
 
-function drawPoster(): Promise<any> {
+async function drawPoster() {
   canvasHook.clearScreen()
-  root.draw()
-  return toPromiseStyle(uni.canvasToTempFilePath, {
+  await root.draw()
+  return wx.canvasToTempFilePath({
     x: 0,
     y: 0,
     width: canvasHook.canvasEleW.value,
@@ -55,6 +59,10 @@ function removeChild(child: Entity) {
   return root.removeChild(child)
 }
 
+function removeAllChild() {
+  root.children = {}
+}
+
 function createText(val: string) {
   return new Text(canvasHook, val)
 }
@@ -62,12 +70,6 @@ function createText(val: string) {
 function createImg(src: string) {
   return new Img(canvasHook, src)
 }
-
-defineExpose({
-  getRenderInst() {
-    return renderInstPromise
-  }
-})
 </script>
 
 <template>

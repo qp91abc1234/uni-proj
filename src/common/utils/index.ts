@@ -9,17 +9,3 @@ export function px2rpx(val: number) {
   const appStore = useAppStore()
   return (val * 750) / appStore.windowInfo.windowWidth
 }
-
-export function toPromiseStyle(cb, params = {}) {
-  return new Promise((resolve, reject) => {
-    cb({
-      ...params,
-      success: (res) => {
-        resolve(res)
-      },
-      fail: (err) => {
-        reject(err)
-      }
-    })
-  })
-}
