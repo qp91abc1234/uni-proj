@@ -11,10 +11,22 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationStyle": "custom",
+				"componentPlaceholder": {
+					"comp-a": "view"
+				}
 			}
 		}
 	],
+	"subPackages": [{
+		"root": "sub/pkgA",
+		"pages": [{
+			"path": "pkgA",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}]
+	}],
 	"globalStyle": {
 		"backgroundColor": "#F8F8F8"
 	}

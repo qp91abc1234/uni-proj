@@ -1,7 +1,31 @@
-<template>
-  <c-flex></c-flex>
-</template>
+<script setup lang="ts">
+import compA from '@/sub/pkgA/compA.vue'
 
-<script setup lang="ts"></script>
+require
+  .async('../../sub/pkgA/logicA.js')
+  .then((pkg) => {
+    pkg.tst('main')
+  })
+  .catch(({ mod, errMsg }) => {
+    console.error(`path: ${mod}, ${errMsg}`)
+  })
+
+require
+  .async('../../sub/pkgA/dayjs/esm/index.js')
+  .then((pkg) => {
+    const now = pkg.dayjs()
+    console.log(now)
+  })
+  .catch(({ mod, errMsg }) => {
+    console.error(`path: ${mod}, ${errMsg}`)
+  })
+</script>
+
+<template>
+  <c-flex>
+    <comp-a />
+    <comp-a-wrap />
+  </c-flex>
+</template>
 
 <style lang="scss" scoped></style>
