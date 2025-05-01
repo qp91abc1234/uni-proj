@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import child from './child.vue'
 import compA from '@/sub/pkgA/compA.vue'
 
 require
@@ -30,7 +31,7 @@ const handleClick = () => {
 <template>
   <c-flex>
     <comp-a />
-    <comp-a-wrap />
+    <child />
     <button @click="handleClick">pkgB</button>
   </c-flex>
 </template>
