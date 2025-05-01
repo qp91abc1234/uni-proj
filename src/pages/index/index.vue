@@ -19,12 +19,19 @@ require
   .catch(({ mod, errMsg }) => {
     console.error(`path: ${mod}, ${errMsg}`)
   })
+
+const handleClick = () => {
+  uni.navigateTo({
+    url: '/sub/pkgB/pkgB'
+  })
+}
 </script>
 
 <template>
   <c-flex>
     <comp-a />
     <comp-a-wrap />
+    <button @click="handleClick">pkgB</button>
   </c-flex>
 </template>
 

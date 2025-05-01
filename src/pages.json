@@ -26,6 +26,14 @@
 				"navigationStyle": "custom"
 			}
 		}]
+	}, {
+		"root": "sub/pkgB",
+		"pages": [{
+			"path": "pkgB",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}]
 	}],
 	"globalStyle": {
 		"backgroundColor": "#F8F8F8"
